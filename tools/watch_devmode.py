@@ -9,6 +9,7 @@ import os
 import sys
 
 from pymobiledevice3 import usbmux
+from pymobiledevice3.exceptions import NotPairedError
 from pymobiledevice3.lockdown import UsbmuxLockdownClient, create_using_usbmux
 from pymobiledevice3.service_connection import ServiceConnection
 from pymobiledevice3.services.amfi import AmfiService
@@ -52,7 +53,11 @@ async def main(action: str) -> None:
     print("phone:", phone.all_values.get("DeviceName"), phone.all_values.get("ProductVersion"))
 
     async with await usbmux.create_mux() as mux:
-        pair_record = await mux.get_pair_record(WATCH)
+        try:
+            pair_record = await mux.get_pair_record(WATCH)
+        except NotPairedError:
+            # A first connection has no saved record. Let autopair ask the watch to trust this Mac.
+            pair_record = None
         system_buid = await mux.get_buid()
 
     conn = await forward(phone, LOCKDOWN_PORT)

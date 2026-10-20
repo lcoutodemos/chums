@@ -80,7 +80,7 @@ print "\nThe watch app (only to build it):"
 DEV=${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}
 if [[ -d $DEV ]]; then
   xv=$(DEVELOPER_DIR=$DEV xcodebuild -version 2>/dev/null | head -1)
-  [[ ${${xv#Xcode }%%.*} -ge 26 ]] 2>/dev/null && ok "$xv" || bad "Xcode 26 or later (found: ${xv:-none}); the app targets watchOS 26"
+  [[ ${${xv#Xcode }%%.*} -ge 26 ]] 2>/dev/null && ok "$xv" || bad "Xcode 26 or later (found: ${xv:-none}); the app uses the watchOS 26 SDK and targets watchOS 10 or later"
 else bad "Xcode 26 or later from the App Store (or set DEVELOPER_DIR)"; fi
 command -v xcodegen >/dev/null && ok "xcodegen" || bad "xcodegen: brew install xcodegen"
 

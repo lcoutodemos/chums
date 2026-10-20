@@ -54,7 +54,7 @@ struct SoulView: View {
                         Label("Undo last change", systemImage: "arrow.uturn.backward").font(.system(size: 14, weight: .medium))
                             .foregroundStyle(Pal.white).frame(maxWidth: .infinity, minHeight: 38)
                     }
-                    .buttonStyle(.plain).glassEffect(.regular.interactive(), in: Capsule())
+                    .buttonStyle(.plain).chumsGlass(interactive: true, in: Capsule())
                 }
                 Color.clear.frame(height: 0).id("end")
             }
@@ -125,7 +125,7 @@ struct SoulView: View {
             Spacer(minLength: 0)
         }
         .padding(11)
-        .glassEffect(.regular.tint(.white.opacity(0.1)), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .chumsGlass(tint: .white.opacity(0.1), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
     /// The characters, each its own agent, in the order the watch lists them first.
@@ -142,7 +142,7 @@ struct SoulView: View {
             Image(systemName: "chevron.right").font(.system(size: 12, weight: .semibold)).foregroundStyle(Pal.gray)
         }
         .padding(.horizontal, 11).padding(.vertical, 9)
-        .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .chumsGlass(in: RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 
     /// Its model and its permissions, as on the iPhone's card: a list for its runtime, its runtime's own setting first.
@@ -224,11 +224,11 @@ struct SoulView: View {
                 Button { Haptics.play(.click); proposal = nil; step = .card } label: {
                     Text("Cancel").font(.system(size: 15, weight: .semibold)).foregroundStyle(Pal.white).frame(maxWidth: .infinity, minHeight: 40)
                 }
-                .buttonStyle(.plain).glassEffect(.regular.interactive(), in: Capsule())
+                .buttonStyle(.plain).chumsGlass(interactive: true, in: Capsule())
                 Button { Task { await save() } } label: {
                     Text("Save").font(.system(size: 15, weight: .semibold)).foregroundStyle(.black).frame(maxWidth: .infinity, minHeight: 40)
                 }
-                .buttonStyle(.plain).glassEffect(.regular.tint(.white).interactive(), in: Capsule())
+                .buttonStyle(.plain).chumsGlass(tint: .white, interactive: true, in: Capsule())
             }
         } else {
             HStack(spacing: 7) {
@@ -237,7 +237,7 @@ struct SoulView: View {
             }
             .foregroundStyle(Pal.white).opacity(step == .listening ? 0 : 1)
             .frame(maxWidth: .infinity, minHeight: 42)
-            .glassEffect(step == .listening ? .regular.tint(.white.opacity(0.18)) : .regular.interactive(), in: Capsule())
+            .chumsGlass(tint: step == .listening ? .white.opacity(0.18) : nil, interactive: step != .listening, in: Capsule())
             .contentShape(Capsule())
             .gesture(DragGesture(minimumDistance: 0)
                 .onChanged { v in

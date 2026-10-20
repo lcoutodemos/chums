@@ -18,6 +18,8 @@ channel/mcp.json
 channel/hooks.json
 .env
 .env.*
+*.mobileprovision
+*.provisionprofile
 
 # macOS, Python, Blender
 .DS_Store

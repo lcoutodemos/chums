@@ -5,7 +5,7 @@ options:
   bundleIdPrefix: dev.chums
   deploymentTarget:
     iOS: "26.0"
-    watchOS: "26.0"
+    watchOS: "10.0"
   createIntermediateGroups: true
 settings:
   base:
@@ -26,7 +26,7 @@ targets:
       # the watch's engine, shared: the characters, the hub, talking, the conversation (watch-only parts are #if'd)
       - path: ChumsWatch
         includes: [Rig/*.swift, Screen.swift, HubClient.swift, HubConfig.swift, Voice.swift, Controller.swift, Chat.swift,
-                   Artifacts.swift, Alerts.swift, Agents.swift, AgentFace.swift, Soul.swift, StayOn.swift]
+                   Artifacts.swift, Alerts.swift, Agents.swift, AgentFace.swift, Soul.swift, StayOn.swift, Compatibility.swift]
       - path: ChumsWatch/Noodle
         type: folder
         buildPhase: resources

@@ -39,8 +39,8 @@ Chums is a team of agents on the AI you already pay for.
 Each agent runs on Claude Code or Codex, picked per agent from the watch or the iPhone:
 [docs/other-agents.md](docs/other-agents.md).
 
-**What you need:** an Apple Watch on watchOS 26 and the iPhone it is paired with (iOS 26), a Mac with Apple silicon
-and Xcode 26, an Apple ID (a free one works), a free Tailscale account, and Claude Code or Codex. You build the apps
+**What you need:** an Apple Watch on watchOS 10 or later and the iPhone it is paired with (iOS 26 or later),
+a Mac with Apple silicon and Xcode 26, an Apple ID (a free one works), a free Tailscale account, and Claude Code or Codex. You build the apps
 from source and run the hub on your Mac. The first setup takes 20–30 minutes, plus up to half an hour of waiting for
 Xcode to prepare the watch and for a new Funnel address to reach public DNS. [Requirements](#requirements) ·
 [Quickstart](#quickstart) · [Set it up with your agent](#set-it-up-with-your-agent)
@@ -179,7 +179,8 @@ Keyring mode keeps Chums on screen when nobody is wearing the watch, and your ag
 ## Requirements
 
 - A Mac with Apple silicon on macOS 15.6 or later, Xcode 26 and [XcodeGen](https://github.com/yonaskolb/XcodeGen)
-- An Apple Watch on watchOS 26, paired with an iPhone on iOS 26, and a USB cable for that iPhone (the first time)
+- An Apple Watch on watchOS 10 or later, paired with an iPhone on iOS 26 or later, and a USB cable for that iPhone
+  (the first time)
 - Node.js 20.11 or later
 - [Claude Code](https://docs.claude.com/en/docs/claude-code) and/or [Codex CLI](https://github.com/openai/codex), signed in
 - [WhisperKit CLI](https://github.com/argmaxinc/WhisperKit) for speech to text, and [ffmpeg](https://ffmpeg.org) to convert the clips

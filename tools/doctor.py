@@ -584,7 +584,7 @@ else:
         for d in watches:
             _, n, v, dm, pair = props(d)
             what = f'Apple Watch {n} (watchOS {vstr(v) if v else "?"})'
-            if v and v < (26, 0): fail(f'{what}: Chums needs watchOS 26', 'on the iPhone: Watch app › General › Software Update')
+            if v and v < (10, 0): fail(f'{what}: Chums needs watchOS 10', 'on the iPhone: Watch app › General › Software Update')
             elif pair != 'paired': fail(f'{what} is not paired with this Mac ({pair})', 'Xcode › Window › Devices and Simulators, with the iPhone on USB and the watch unlocked')
             elif dm != 'enabled': fail(f'{what}: Developer Mode is {dm or "off"}',
                                      ['on the watch: Settings › Privacy & Security › Developer Mode, then restart it and confirm',

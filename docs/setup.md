@@ -39,7 +39,7 @@ Optional, after that: [the watch app's settings](#the-watch-apps-settings), [the
 | What | Minimum | Why | How to get it |
 | --- | --- | --- | --- |
 | A Mac with Apple silicon | macOS 15.6 | Runs the hub, speech to text and the agents, and builds the app. Xcode 26 needs macOS 15.6 | System Settings › General › Software Update |
-| An Apple Watch | watchOS 26 | Runs Chums. watchOS 26 runs on Series 6 or later, SE (2nd generation) or later, and every Ultra | iPhone: Watch app › General › Software Update |
+| An Apple Watch | watchOS 10 | Runs Chums. A Series 5 on watchOS 10.6.1 has been tested; see [older watches](older-watches.md) for compatibility and installation notes | iPhone: Watch app › General › Software Update |
 | The iPhone the watch is paired with | iOS 26 | Xcode reaches the watch through it | Settings › General › Software Update |
 | A USB cable for that iPhone | | The first time, Xcode finds a watch only through its iPhone connected by cable | |
 | One Wi-Fi network for the Mac, the iPhone and the watch | | Xcode installs on the watch over the local network | |
@@ -209,8 +209,11 @@ USB cable. After that, the iPhone and the watch stay known to Xcode, and install
    can take 10 minutes or more the first time. Keep the watch unlocked until it finishes.
 
 **How to know it worked:** Devices and Simulators lists the watch without a warning, and `bin/chums-doctor` shows
-`Apple Watch <name> (watchOS 26.x)` under "7. The Apple Watch". If the watch doesn't appear, see
+`Apple Watch <name> (watchOS <version>)` under "7. The Apple Watch". If the watch doesn't appear, see
 [troubleshooting.md](troubleshooting.md#the-watch-isnt-in-xcode).
+
+For older watches that do not appear in Xcode, see [older-watch installation](older-watches.md). The phone can
+transfer the embedded watch app even when direct installation through `devicectl` is unavailable.
 
 ## 8. Turn on Developer Mode
 

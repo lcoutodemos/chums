@@ -62,7 +62,7 @@ struct ChatPanel: View {
             Grabber().padding(.top, 6)
         }
         .clipShape(Self.card)                                                // only the card's own edge clips
-        .glassEffect(.regular.tint(.black.opacity(0.32)), in: Self.card)
+        .chumsGlass(tint: .black.opacity(0.32), in: Self.card)
     }
 
     @ViewBuilder private func bubble(_ l: ChatLine) -> some View {

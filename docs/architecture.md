@@ -2,7 +2,7 @@
 
 Chums has four parts:
 
-- **The watch app** (`app/ChumsWatch`, SwiftUI, watchOS 26): draws the character, records your voice, shows
+- **The watch app** (`app/ChumsWatch`, SwiftUI, watchOS 10 or later): draws the character, records your voice, shows
   approvals and replies, and polls the hub.
 - **The iPhone app** (`app/ChumsPhone`, iOS 26): the same agents and conversations through the same hub, with
   widgets and a Talk control ([below](#the-iphone-app)).
